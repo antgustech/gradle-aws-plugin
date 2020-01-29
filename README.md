@@ -5,7 +5,7 @@ Purpose of this project is to offer a gradle plugin that you can use to upload e
 ### Installation
 Add the dependency like this in your build.gradle file and apply the plugin:
 
-###Usage
+### Usage
 
 Configure the parameters like this
 
@@ -39,8 +39,3 @@ gradle uploads3
 | proxyPort     | No            |            |  If on proxy specify port                                |
 | s3Overwrite   | no            |   false    |  Specify if you want to overwrite files if they exist    |
 | directory     | no            |   false    |  Specify if you want to upload an entire directory       | 
-
-
-###Build
-If you want to build the plugin yourself the easiest way is to clone it and then run. 
-    
