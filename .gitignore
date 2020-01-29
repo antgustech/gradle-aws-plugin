@@ -1,0 +1,25 @@
+
+### Gradle ###
+.gradle
+build/
+gradle/
+gradlew
+gradlew.bat
+.classpath
+.project
+.settings
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+### Gradle Patch ###
+**/build/
+
+#intelliJ
+.idea

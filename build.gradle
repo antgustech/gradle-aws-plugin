@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+group = 'org.plugin'
+version = '1.1'
+
+dependencies {
+    compile gradleApi()
+    id 'com.gradle.plugin-publish' version '0.10.1'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.714'
+}
+
+//Uploads the plugin. ./gradlew clean uploadArchives
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenLocal().url)
+        }
+    }
+}
+
+//Try running the plugin ./gradlew uploads3
+apply plugin: 'awsplugin'
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+
+        classpath group: 'org.plugin',
+                name: 'gradle-aws-plugin',
+                version: '1.1'
+    }
+}
