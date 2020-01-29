@@ -1,3 +1,26 @@
+
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+
+        classpath group: 'org.plugin',
+                name: 'gradle-aws-plugin',
+                version: '1.1'
+    }
+}
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.1'
+
+}
+
+apply plugin: 'aws'
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -24,16 +47,19 @@ uploadArchives {
     }
 }
 
-apply plugin: 'awsplugin'
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
+pluginBundle {
+    website = 'https://github.com/antgustech/gradle-aws-plugin'
+    vcsUrl = 'https://github.com/antgustech/gradle-aws-plugin'
+    tags = ['AWS', 'S3']
+}
 
-        classpath group: 'org.plugin',
-                name: 'gradle-aws-plugin',
-                version: '1.1'
+gradlePlugin {
+    plugins {
+        awsPlugin {
+            id = 'org.plugin.aws'
+            displayName = 'AWS plugin'
+            description = 'AWS plugin for interacting with AWS Services'
+            implementationClass = 'org.plugin.AWSPlugin'
+        }
     }
 }
